@@ -2,6 +2,7 @@
     export let name = "Extension";
     export let image = "";
     export let url = "";
+    export let owner = "my dog";
 
     function copyURL(url) {
         navigator.clipboard.writeText(url);
@@ -13,7 +14,11 @@
         <img src={image} alt="ExtensionBanner" />
     </div>
     <h1>{name}</h1>
-    <p><slot /></p>
+    <p>
+        <slot />
+        <br />
+        extension maded by {owner}!!
+    </p>
     <br />
     <button
         style="background: rgb(96, 96, 255);border-color: rgb(34, 34, 255);"

@@ -72,6 +72,7 @@
         <Extension
             name="McUtils"
             image="https://extensions.turbowarp.org/images/LukeManiaStudios/McUtils.png"
+            owner="LukeManiaStudios"
             url="https://extensions.turbowarp.org/LukeManiaStudios/McUtils.js"
         >
             Helpful utilities for any fast food employee.
@@ -79,6 +80,7 @@
         <Extension
             name="MR BEAST UTILTITIES"
             image="/images/Mr_Beast_Utilitities.svg"
+            owner="JeremyGamer13"
             url={locationOrigin + "/extensions/mrbeastutil.js"}
         >
             the best blockes ever
