@@ -68,6 +68,14 @@
         </p>
     </div>
 
+    <div class="box red-box">
+        <p>
+            These extensions are not unsandboxed.
+            <br />
+            Click the "copy code" button to load an extension by text in TurboWarp
+        </p>
+    </div>
+
     <div class="list">
         <Extension
             name="McUtils"
@@ -86,6 +94,14 @@
             url={locationOrigin + "/extensions/mrbeastutil.js"}
         >
             the best blockes ever
+        </Extension>
+        <Extension
+            name="Jungle Inferno"
+            image="/images/none.png"
+            owner="LilyMakesThings"
+            url={locationOrigin + "/extensions/jungleinferno.js"}
+        >
+            a good
         </Extension>
     </div>
 
@@ -116,5 +132,11 @@
     .list {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .red-box {
+        background-color: rgb(233, 69, 69);
+        border-color: rgb(156, 23, 23);
+        color: white;
     }
 </style>
