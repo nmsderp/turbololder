@@ -72,10 +72,12 @@
         <Extension
             name="McUtils"
             image="https://extensions.turbowarp.org/images/Lily/McUtils.png"
-            owner="LilyManiaStudios"
+            owner="LilyMakesThings"
             url="https://extensions.turbowarp.org/Lily/McUtils.js"
         >
             Helpful utilities for any fast food employee.
+            <br />
+            Created by LilyMakesPlusExtensions
         </Extension>
         <Extension
             name="MR BEAST UTILTITIES"

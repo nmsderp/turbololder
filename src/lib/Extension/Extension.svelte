@@ -6,6 +6,20 @@
 
     function copyURL(url) {
         navigator.clipboard.writeText(url);
+        alert("copeed");
+    }
+    function copyCode(url) {
+        fetch(url)
+            .then((res) =>
+                res
+                    .text()
+                    .then((code) => {
+                        navigator.clipboard.writeText(code);
+                        alert("copeed");
+                    })
+                    .catch(alert)
+            )
+            .catch(alert);
     }
 </script>
 
@@ -28,11 +42,17 @@
     </button>
     <a href={"https://turbowarp.org/editor?extension=" + url} target="_blank">
         <button
-            style="background: rgb(255, 96, 96);border-color: rgb(255, 34, 34);"
+            style="background: rgb(255, 96, 96);border-color: rgb(255, 34, 34);font-size:16px"
         >
             use this one
         </button>
     </a>
+    <button
+        style="background: rgb(54, 209, 60);border-color: rgb(44, 158, 49);"
+        on:click={() => copyCode(url)}
+    >
+        copy CODE
+    </button>
 </div>
 
 <style>
