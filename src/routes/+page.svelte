@@ -71,9 +71,9 @@
     <div class="list">
         <Extension
             name="McUtils"
-            image="https://extensions.turbowarp.org/images/LukeManiaStudios/McUtils.png"
-            owner="LukeManiaStudios"
-            url="https://extensions.turbowarp.org/LukeManiaStudios/McUtils.js"
+            image="https://extensions.turbowarp.org/images/Lily/McUtils.png"
+            owner="LilyManiaStudios"
+            url="https://extensions.turbowarp.org/Lily/McUtils.js"
         >
             Helpful utilities for any fast food employee.
         </Extension>
