@@ -85,7 +85,7 @@
         >
             Helpful utilities for any fast food employee.
             <br />
-            Created by LilyMakesPlusExtensions
+            Created by (redacted)
         </Extension>
         <Extension
             name="MR BEAST UTILTITIES"
@@ -106,9 +106,68 @@
     </div>
 
     <div style="height:256px" />
+    <div style="display:flex;flex-direction:row;align-items:center;">
+        <img class="arrow" alt="arrow" src="/flashing_arrow.png" />
+        <a
+            href="https://github.com/JeremyGamer13/turbololder/pulls"
+            target="_blank"
+        >
+            <button style="font-size:64px;" class="old-button anti-arrow">
+                SUBMIT YOUR OWN EXTENSION
+            </button>
+        </a>
+    </div>
+    <p style="font-size:10px">and ill forget about it for like a month</p>
+    <div style="height:256px" />
 </div>
 
 <style>
+    @keyframes flashing-arrow {
+        0% {
+            filter: hue-rotate(0deg);
+        }
+        20% {
+            filter: hue-rotate(40deg);
+            margin-left: 7px;
+        }
+        40% {
+            filter: hue-rotate(80deg);
+            margin-left: 0px;
+        }
+        60% {
+            filter: hue-rotate(120deg);
+            margin-left: 7px;
+        }
+        80% {
+            filter: hue-rotate(180deg);
+            margin-left: 0px;
+        }
+        100% {
+            filter: hue-rotate(270deg);
+            margin-left: 7px;
+        }
+    }
+    @keyframes away-arrow {
+        0% {
+            margin-left: 7px;
+        }
+        20% {
+            margin-left: 0px;
+        }
+        40% {
+            margin-left: 7px;
+        }
+        60% {
+            margin-left: 0px;
+        }
+        80% {
+            margin-left: 7px;
+        }
+        100% {
+            margin-left: 0px;
+        }
+    }
+
     .logo {
         height: 64px;
     }
@@ -138,5 +197,40 @@
         background-color: rgb(233, 69, 69);
         border-color: rgb(156, 23, 23);
         color: white;
+    }
+
+    .arrow {
+        animation-name: flashing-arrow;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: step-start;
+    }
+    .anti-arrow {
+        animation-name: away-arrow;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: step-start;
+    }
+
+    .old-button {
+        cursor: pointer;
+        border-radius: 14px;
+        border: 4px solid gray;
+        background: rgb(238, 238, 238);
+        background: linear-gradient(
+            180deg,
+            rgba(238, 238, 238, 1) 0%,
+            rgba(144, 144, 144, 1) 100%
+        );
+    }
+    .old-button:active {
+        border-radius: 14px;
+        border: 4px solid gray;
+        background: rgb(238, 238, 238);
+        background: linear-gradient(
+            0deg,
+            rgba(238, 238, 238, 1) 0%,
+            rgba(144, 144, 144, 1) 100%
+        );
     }
 </style>
