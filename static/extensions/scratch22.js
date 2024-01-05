@@ -111,9 +111,11 @@
 			};
 		}
 		
-		turnLeft(args) {}
-		turnRight(args) {}
-		rotate(args) {}
+		turnLeft() {}
+		turnRight() {}
+		rotate() {}
+		move() {}
+		scale() {}
 	}
 	
 	if (!window.scaffolding) {
