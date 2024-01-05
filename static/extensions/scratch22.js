@@ -1,4 +1,4 @@
-// version 2.212
+// Version 2.212
 // Firefox recommended.
 // Trigger sprites by RobTop.
 (function(Scratch) {
@@ -116,53 +116,61 @@
 		rotate(args) {}
 	}
 	
-	if (window?.ScratchBlocks) {
-		const oldClassify = ScratchBlocks.BlockSvg.prototype.renderClassify_;
-		ScratchBlocks.BlockSvg.prototype.renderClassify_ = function() {
-			oldClassify.call(this);
-			if (!this.type.startsWith(exId)) return;
-			const args = getBlockArgs(this);
-			let style = "";
-			for (const arg in args) {
-				const value = args[arg].toString().replaceAll(/["';\n\r]/gi, "");
-				if (!isNaN(value)) {
-					style += "--arg-" + arg.toString() + ": " + value + ';';
-				} else {
-					style += "--arg-" + arg.toString() + ": " + '"' + value + '";';
+	if (!window.scaffolding) {
+		let interval;
+		function patchSB() {
+			if (window?.ScratchBlocks) {
+				const oldClassify = ScratchBlocks.BlockSvg.prototype.renderClassify_;
+				ScratchBlocks.BlockSvg.prototype.renderClassify_ = function() {
+					oldClassify.call(this);
+					if (!this.type.startsWith(exId)) return;
+					const args = getBlockArgs(this);
+					let style = "";
+					for (const arg in args) {
+						const value = args[arg].toString().replaceAll(/["';\n\r]/gi, "");
+						if (!isNaN(value)) {
+							style += "--arg-" + arg.toString() + ": " + value + ';';
+						} else {
+							style += "--arg-" + arg.toString() + ": " + '"' + value + '";';
+						}
+					}
+					this.svgGroup_.setAttribute("style", style);
+					this.svgGroup_.setAttribute("data-opcode", this.type.toString());
 				}
+				
+				const style = document.createElement("style");
+				style.textContent = `
+					.blocklyDraggable[data-opcode="${exId}_turnRight"] > .blocklyDraggable {
+						rotate: 90deg;
+					}
+					.blocklyDraggable[data-opcode="${exId}_turnLeft"] > .blocklyDraggable {
+						rotate: -90deg;
+						translate: 48px 48px;
+					}
+					.blocklyDraggable[data-opcode="${exId}_rotate"] > .blocklyDraggable {
+						rotate: calc(var(--arg-DEGREES, 0) * 1deg);
+						translate: 0px 40px;
+					}
+					.blocklyDraggable[data-opcode="${exId}_move"] > .blocklyDraggable {
+						translate: calc(var(--arg-X, 0) * 4.8px) calc(var(--arg-Y, 0) * 4.8px);
+					}
+					.blocklyDraggable[data-opcode="${exId}_scale"] > .blocklyDraggable {
+						scale: var(--arg-SCALE, 1);
+						translate: 0 48px;
+					}
+					.blocklyDraggable[data-opcode*="${exId}"] > g > image {
+						transform: scale(1.5) translate(-3px, -4px);
+					}
+					.blocklyDraggable[data-opcode*="${exId}"] > .blocklyBlockBackground {
+						opacity: 0;
+					}
+				`;
+				document.documentElement.appendChild(style);
+				clearInterval(interval);
 			}
-			this.svgGroup_.setAttribute("style", style);
-			this.svgGroup_.setAttribute("data-opcode", this.type.toString());
 		}
-		
-		const style = document.createElement("style");
-		style.textContent = `
-			.blocklyDraggable[data-opcode="${exId}_turnRight"] > .blocklyDraggable {
-				rotate: 90deg;
-			}
-			.blocklyDraggable[data-opcode="${exId}_turnLeft"] > .blocklyDraggable {
-				rotate: -90deg;
-				translate: 48px 48px;
-			}
-			.blocklyDraggable[data-opcode="${exId}_rotate"] > .blocklyDraggable {
-				rotate: calc(var(--arg-DEGREES, 0) * 1deg);
-				translate: 0px 40px;
-			}
-			.blocklyDraggable[data-opcode="${exId}_move"] > .blocklyDraggable {
-				translate: calc(var(--arg-X, 0) * 4.8px) calc(var(--arg-Y, 0) * 4.8px);
-			}
-			.blocklyDraggable[data-opcode="${exId}_scale"] > .blocklyDraggable {
-				scale: var(--arg-SCALE, 1);
-				translate: 0 48px;
-			}
-			.blocklyDraggable[data-opcode*="${exId}"] > g > image {
-				transform: scale(1.5) translate(-3px, -4px);
-			}
-			.blocklyDraggable[data-opcode*="${exId}"] > .blocklyBlockBackground {
-				opacity: 0;
-			}
-		`;
-		document.documentElement.appendChild(style);
+		interval = setInterval(patchSB, 50);
+		patchSB();
 	}
 	
 	Scratch.extensions.register(new Scratch22Ext());
