@@ -103,6 +103,16 @@
         >
             a good
         </Extension>
+        <Extension
+            name="Scratch 2.2"
+            image="/images/scratch22.png"
+            owner="CST1229"
+            url={locationOrigin + "/extensions/scratch22.js"}
+        >
+            le funni extension which lets you rotate blocks
+			<br />
+			<small>(firefox recommended. trigger sprites originally by robtop)</small>
+        </Extension>
     </div>
 
     <div style="height:256px" />
