@@ -4,6 +4,10 @@
 (function(Scratch) {
 	"use strict";
 	
+	if (!Scratch.extensions.unsandboxed) {
+		throw new Error("Scratch 2.2 must be run unsandboxed");
+	}
+	
 	const exId = "cst1229scratch22";
 	
 	// recycled from my adm implementation
