@@ -1,4 +1,4 @@
-// Version 2.212
+// Version 2.213
 // Firefox recommended.
 // Trigger sprites by RobTop.
 (function(Scratch) {
@@ -167,7 +167,7 @@
 					.blocklyDraggable[data-opcode*="${exId}"] > g > image {
 						transform: scale(1.5) translate(-3px, -4px);
 					}
-					.blocklyDraggable[data-opcode*="${exId}"] > .blocklyBlockBackground {
+					.blocklyDraggable:not(.blocklyInsertionMarker)[data-opcode*="${exId}"] > .blocklyBlockBackground {
 						opacity: 0;
 					}
 				`;
