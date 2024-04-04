@@ -113,6 +113,14 @@
 			<br />
 			<small>(firefox recommended. trigger sprites originally by robtop)</small>
         </Extension>
+        <Extension
+            name="deadmod"
+            image="/images/Mr_Beast_Utilitities.svg"
+            owner="nmsderp"
+            url={locationOrigin + "/extensions/dead.js"}
+        >
+            it makes pengin die 💀💀💀💀💀💀💀
+        </Extension>
     </div>
 
     <div style="height:256px" />
