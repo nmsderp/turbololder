@@ -115,7 +115,7 @@
         </Extension>
         <Extension
             name="deadmod"
-            image="/images/Mr_Beast_Utilitities.svg"
+            image="/images/dead.svg"
             owner="nmsderp"
             url={locationOrigin + "/extensions/dead.js"}
         >
